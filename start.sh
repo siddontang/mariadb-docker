@@ -49,6 +49,9 @@ if [ ! -d /var/lib/mysql/mysql ]; then
   echo "Grant ALL to root"
   mysql -uroot -e "GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '' WITH GRANT OPTION;"
 
+  echo "Create test database"
+  mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test;"
+
   /usr/bin/mysqladmin --defaults-file=/etc/mysql/debian.cnf shutdown
 fi
 
